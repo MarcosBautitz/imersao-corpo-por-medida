@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Página C no celular</title>
+<style>
+/* Previa do celular: moldura de 393 x 852 que carrega pagina-c.html.
+   A tela de dentro e sempre 393 x 852; a moldura so encolhe na tela de fora para caber. */
+:root { --container: 100%; --gutter: 16px; }
+@media (min-width: 768px)  { :root { --container: 100%;   --gutter: 24px; } }
+@media (min-width: 1024px) { :root { --container: 100%;   --gutter: 32px; } }
+@media (min-width: 1280px) { :root { --container: 1200px; --gutter: 32px; } }
+@media (min-width: 1440px) { :root { --container: 1340px; --gutter: 40px; } }
+@media (min-width: 1920px) { :root { --container: 1440px; --gutter: 48px; } }
+@media (min-width: 2560px) { :root { --container: 1600px; --gutter: 48px; } }
+@media (min-width: 3440px) { :root { --container: 1800px; --gutter: 64px; } }
+@media (min-width: 3840px) { :root { --container: 2000px; --gutter: 80px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { max-width: 100%; overflow-x: hidden; margin: 0; }
+body { min-height: 100vh; background: #e2e2e2; }
+.wrapper {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  padding-block: 24px;
+  display: flex;
+  justify-content: center;
+}
+.caixa { position: relative; width: 417px; height: 876px; }
+.moldura {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 417px;
+  height: 876px;
+  padding: 12px;
+  border-radius: 52px;
+  background: #1b1b1b;
+  transform-origin: 0 0;
+}
+.moldura iframe {
+  display: block;
+  width: 393px;
+  height: 852px;
+  border: 0;
+  border-radius: 40px;
+  background: #ffffff;
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="caixa" id="caixa">
+    <div class="moldura" id="moldura">
+      <iframe src="../pagina-c.html" width="393" height="852" title="Página C, tela de celular de 393 por 852"></iframe>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var caixa = document.getElementById('caixa');
+  var moldura = document.getElementById('moldura');
+  function ajusta() {
+    var gutter = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gutter')) || 16;
+    var largura = document.documentElement.clientWidth - 2 * gutter;
+    var altura = window.innerHeight - 48;
+    var escala = Math.max(0.35, Math.min(1, largura / 417, altura / 876));
+    moldura.style.transform = 'scale(' + escala + ')';
+    caixa.style.width = (417 * escala) + 'px';
+    caixa.style.height = (876 * escala) + 'px';
+  }
+  ajusta();
+  window.addEventListener('resize', ajusta);
+})();
+</script>
+</body>
+</html>
