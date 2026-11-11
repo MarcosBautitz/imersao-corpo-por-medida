@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Imersão Corpo por Medida, de Manu Maia · glúteo, íntima feminina e masculina · 1ª Edição Diamond</title>
 <style>
-/* Prototipo em wireframe da pagina C, narrativa do faturamento. Escala de cinza, uma fonte do sistema.
+/* Prototipo em wireframe da pagina C, narrativa do faturamento, com video. Escala de cinza, uma fonte do sistema.
    Contrato de responsividade da casa: 9 bandas, conjunto fechado de breakpoints.
    Excecao de coluna estreita: a moldura respira, o conteudo fica em 800 px. */
 
@@ -238,24 +238,81 @@ body.popup-aberto .faixa { display: none; }
   .faixa-sep { display: inline; }
 }
 
-/* Bloco 1: hero sem video, foto da Manu acima no celular e a direita no computador */
-.hero-b { display: grid; gap: 24px; }
-.hero-foto { width: 60%; max-width: 280px; justify-self: center; }
-.hero-texto { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
-.hero-texto .rotulo { color: var(--sobre-escuro-2); }
-.hero-texto .lista-check { gap: 10px; }
-.hero-texto .acao { align-items: flex-start; margin-top: 12px; text-align: left; }
+/* Bloco 1: hero */
+.hero { display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
+.hero .rotulo { color: var(--sobre-escuro-2); }
+.hero .legenda { margin-top: -12px; font-size: 13px; line-height: 1.4; color: var(--sobre-escuro-2); }
 .promessa { font-size: 17px; line-height: 1.5; }
-@media (min-width: 768px) {
-  .hero-b { grid-template-columns: minmax(0, 1fr) minmax(0, 300px); column-gap: 40px; align-items: center; }
-  .hero-foto { grid-column: 2; grid-row: 1; width: 100%; max-width: none; }
-  .hero-texto { grid-column: 1; grid-row: 1; }
-}
+.hero .acao { margin-top: 8px; }
 
-/* Pagina C: fotos de 2017 e de hoje, linha de abertura da agenda */
-.vendia-fotos { display: grid; gap: 16px; margin-bottom: 24px; }
-@media (min-width: 768px) { .vendia-fotos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* Pagina C, com video */
 .abertura { margin-top: 8px; }
+.linha-limite { font-size: 14px; line-height: 1.6; color: var(--sobre-escuro-2); }
+.hero .linha-preco { font-size: 15px; }
+@media (min-width: 768px) {
+  .hero .linha-preco { font-size: 17px; }
+  .linha-limite { font-size: 15px; }
+}
+.duas-fotos { display: grid; gap: 16px; }
+.duas-fotos figcaption, .galeria-6 figcaption { margin-top: 6px; font-size: 13px; line-height: 1.4; color: var(--texto-2); }
+.galeria-6 figcaption { font-size: 11px; }
+@media (min-width: 768px) { .duas-fotos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.leitura-2 { margin-top: 24px; }
+.faixa-numeros { margin-top: var(--respiro-interno); }
+.faixa-numeros .numero { min-height: 104px; padding: 12px 8px; }
+.faixa-numeros .numero-a { font-size: 12px; }
+.numero-n.lacuna { font-size: 11px; letter-spacing: 0; overflow-wrap: anywhere; }
+@media (min-width: 768px) {
+  .numeros.faixa-numeros { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .faixa-numeros .numero:last-child { grid-column: auto; justify-self: stretch; width: auto; }
+  .faixa-numeros .numero-n { font-size: 22px; }
+  .faixa-numeros .numero-n.lacuna { font-size: 11px; }
+}
+@media (min-width: 1024px) {
+  .numeros.faixa-numeros { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+}
+.galeria-6 { margin-top: 24px; }
+@media (min-width: 768px) {
+  .galeria.galeria-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+.comando { margin-top: 28px; }
+.texto .comando + p { margin-top: 8px; }
+.inicio-fim { margin-top: var(--respiro-interno); }
+.linha-tempo { position: relative; display: grid; gap: 18px; padding-left: 28px; }
+.linha-tempo::before { content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 1px; background: var(--borda-campo); }
+.marco { position: relative; }
+.marco-ponto { position: absolute; left: -28px; top: 3px; width: 15px; height: 15px; border: 1px solid var(--texto); border-radius: 50%; background: var(--suave); }
+.marco p { margin-top: 2px; font-size: 14px; line-height: 1.5; }
+.inicio-fim-texto { margin-top: 24px; font-size: 15px; line-height: 1.7; }
+.formacao { margin-top: 16px; font-size: 14px; line-height: 1.6; color: var(--texto-2); }
+@media (min-width: 768px) {
+  .linha-tempo { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; padding-left: 0; padding-top: 28px; }
+  .linha-tempo::before { left: 7px; right: 7px; top: 7px; bottom: auto; width: auto; height: 1px; }
+  .marco-ponto { left: 0; top: -28px; }
+}
+.provas { display: grid; gap: 24px; }
+.doc { width: 70%; justify-self: center; }
+.doc-botao { display: block; width: 100%; padding: 0; border: 1px solid var(--borda); border-radius: 4px; background: transparent; cursor: zoom-in; }
+.doc-botao:focus-visible { outline: 2px solid var(--texto); outline-offset: 3px; }
+.doc-botao .ph { border-radius: 3px; }
+.r-a4 { aspect-ratio: 210 / 297; }
+.provas-lista { display: grid; gap: 14px; }
+.prova { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; gap: 14px; align-items: start; padding: var(--pad); border: 1px solid var(--borda); border-radius: 12px; }
+.prova .ic { width: 24px; height: 24px; }
+.prova p { font-size: var(--fs-corpo); line-height: 1.6; }
+.prova-foto { width: 64px; padding: 4px; border-radius: 8px; font-size: 10px; }
+@media (min-width: 768px) {
+  .provas { grid-template-columns: minmax(0, 280px) minmax(0, 1fr); column-gap: 32px; align-items: start; }
+  .doc { width: 100%; }
+}
+.alunas { margin-top: var(--respiro-interno); }
+.pacientes-dizem { margin-top: var(--respiro-interno); }
+.pacientes-linha { margin-bottom: 16px; font-size: 15px; line-height: 1.6; }
+.prints { display: grid; gap: var(--gap); }
+@media (min-width: 768px) { .prints { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.doc-grande { width: min(640px, calc(100% - 2 * var(--gutter))); max-width: none; max-height: calc(100dvh - 32px); padding: 52px 16px 16px; border: 0; border-radius: 12px; background: var(--claro); color: var(--texto); overflow: auto; }
+.doc-grande::backdrop { background: rgba(0, 0, 0, 0.72); }
+.doc-grande .ph { width: min(100%, calc((100dvh - 120px) * 210 / 297)); margin-inline: auto; font-size: 15px; }
 
 /* Bloco 2: numeros */
 .numeros { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap); }
@@ -602,25 +659,23 @@ body.popup-aberto .faixa { display: none; }
 
 <main>
 
-  <!-- Bloco 1: hero, de 2017 a hoje -->
+  <!-- Bloco 1: hero com video -->
   <section class="bloco escuro" id="bloco-1" aria-labelledby="t-hero">
     <div class="wrapper">
-      <div class="coluna hero-b">
-        <div class="ph r-4x5 hero-foto" role="img" aria-label="Foto profissional da Manu na clínica, vertical, 4:5"><span>Foto profissional da Manu na clínica, 4:5</span></div>
-        <div class="hero-texto">
-          <p class="rotulo">Imersão Corpo por Medida, de Manu Maia · 1ª Edição · Diamond · Blumenau (SC) · DIA/MÊS/ANO</p>
-          <h1 class="display" id="t-hero">Em 2017 eu faturava dez mil num estúdio de duas salas. Hoje a minha clínica passa de cem mil por mês.</h1>
-          <p class="promessa">O que mudou foi o que eu decidi vender. Parei de oferecer só o que toda clínica oferece e fui buscar procedimentos que poucas fazem. Em três dias, em Blumenau, eu te ensino três deles: harmonização glútea, íntima feminina e íntima masculina, com a sua mão na paciente e eu do lado.</p>
-          <p class="promessa">Esse número é meu, de sete anos de estudo e de clínica. O que eu te entrego é o protocolo.</p>
-          <ul class="lista-check" role="list">
-            <li><svg class="ic ic-check" aria-hidden="true"><use href="#i-check"/></svg><span>3 dias presenciais, com a mão na paciente</span></li>
-            <li><svg class="ic ic-check" aria-hidden="true"><use href="#i-check"/></svg><span>10 vagas, 2 delas VIP</span></li>
-            <li><svg class="ic ic-check" aria-hidden="true"><use href="#i-check"/></svg><span>Certificado de 30 horas e 6 meses de grupo comigo</span></li>
-          </ul>
-          <div class="acao">
-            <button class="btn" type="button" data-abre-popup>Quero minha vaga</button>
-            <p class="apoio">Você preenche, eu te chamo no WhatsApp.</p>
-          </div>
+      <div class="coluna c-hero hero">
+        <p class="rotulo">Imersão Corpo por Medida, de Manu Maia · 1ª Edição · Diamond · Blumenau (SC) · DIA/MÊS/ANO</p>
+        <h1 class="display" id="t-hero">Em 2017 eu faturava dez mil num estúdio de duas salas. Hoje a minha clínica passa de cem mil por mês.</h1>
+        <div class="ph r-16x9" role="img" aria-label="Vídeo 16:9, play manual, capa com o rosto da Manu e a headline">
+          <svg class="ic play" aria-hidden="true"><use href="#i-play"/></svg>
+          <span>Vídeo, 16:9, play manual</span>
+          <span class="ph-sub">Capa: o rosto da Manu, com a headline escrita</span>
+        </div>
+        <p class="legenda">Em dois minutos: o que eu parei de vender, quanto eu cobro hoje e o que você faz nos três dias.</p>
+        <p class="promessa linha-preco">Na minha clínica, um protocolo de glúteo ou de íntima <strong>chega a R$ 50 mil</strong>, dependendo do que a paciente precisa. Em três dias, com a sua mão na paciente, você volta aplicando os três.</p>
+        <p class="linha-limite">Esse número é meu. A técnica que chega nele, eu te passo em três dias.</p>
+        <div class="acao">
+          <button class="btn" type="button" data-abre-popup>Quero minha vaga</button>
+          <p class="apoio">Você preenche, eu te chamo no WhatsApp.</p>
         </div>
       </div>
     </div>
@@ -629,38 +684,82 @@ body.popup-aberto .faixa { display: none; }
   <!-- Bloco 2: o que eu vendia, o que eu vendo -->
   <section class="bloco claro" id="bloco-2" aria-labelledby="t-vendia">
     <div class="wrapper">
-      <div class="coluna c-leitura">
+      <div class="coluna">
         <h2 class="t-h1 titulo-bloco" id="t-vendia">O que eu vendia. O que eu vendo.</h2>
-        <div class="vendia-fotos">
-          <div class="ph r-3x2" role="img" aria-label="Foto do estúdio em 2017, 3:2"><span>Estúdio em 2017, 3:2</span></div>
-          <div class="ph r-3x2" role="img" aria-label="Foto da clínica hoje, 3:2"><span>Clínica hoje, 3:2</span></div>
+        <div class="duas-fotos">
+          <figure><div class="ph r-3x2" role="img" aria-label="Foto do estúdio de 2017, 3:2"><span>Foto do estúdio de 2017, 3:2</span></div><figcaption>2017: duas salas</figcaption></figure>
+          <figure><div class="ph r-3x2" role="img" aria-label="Foto das três salas da clínica hoje, 3:2"><span>Foto das três salas da clínica hoje, 3:2</span></div><figcaption>hoje: três salas</figcaption></figure>
         </div>
-        <div class="texto">
-          <p>Em 2017 eu abri um estúdio de duas salas. Micropigmentação, design de sobrancelha, maquiagem. Comprava produto de representante, pagava mais caro e, como eu dizia, comprava no almoço para vender no jantar. Fazia procedimento de graça em troca de divulgação. O faturamento girava entre dez e doze mil por mês e, nos primeiros treze meses, não sobrou nada. Eu me perguntava: por que alguém me escolheria?</p>
-          <p>A resposta veio de uma conta simples: se eu fizesse o mesmo que todo mundo fazia, eu teria o mesmo resultado que todo mundo tinha. Então eu fui buscar técnica onde poucas vão: Sérvia, Coreia, Rússia duas vezes, contra a opinião da família e sem falar a língua. Até hoje, mais de R$ 300 mil em formações.</p>
-          <p>Voltei vendendo o que poucas clínicas vendiam. A primeira paciente virou indicação. Vieram os atendimentos nos Estados Unidos, a agenda lotada por indicação, a clínica nova. O mililitro que eu cobrava a R$ 780 passou a R$ 1.450. Não porque o mercado mudou: porque eu mudei o que eu vendia e como eu vendia.</p>
-          <p>No corpo, fiz o mesmo caminho. Glúteo desde 2019, pesquisando ativos e técnicas para chegar a resultados naturais e seguros. Íntima no Rio de Janeiro, em formação com dissecação em cadáver fresh frozen e prática em pacientes modelo. Só nos dois, cerca de R$ 50 mil. Hoje atendo os três na minha clínica em Blumenau.</p>
-          <p>Hoje a minha clínica fatura acima de R$ 100 mil por mês. Esse número é meu: sete anos de estudo e de clínica, mais de R$ 300 mil em formação. O que eu te entrego em três dias é o protocolo dos três procedimentos. O que você constrói com ele é seu.</p>
+        <div class="texto c-leitura coluna leitura-2">
+          <p>Em 2017 eu abri um estúdio de duas salas. Micropigmentação, design de sobrancelha, maquiagem, uma loja de produtos na frente. Comprava de representante, pagava mais caro e, como eu dizia, comprava no almoço para vender no jantar. Fazia procedimento de graça em troca de divulgação e cobrava pelo que eu achava certo, sem saber o custo da minha hora. O faturamento girava entre dez e doze mil por mês e, nos primeiros treze meses, não sobrou nada.</p>
+          <p>A conta era simples: se eu fizesse o mesmo que todo mundo fazia, eu teria o mesmo resultado que todo mundo tinha. Então fui buscar técnica onde poucas vão. Sérvia, 2019. Coreia, 2019. Rússia, 2019, e de novo em 2020: a primeira vez para aprender, a segunda para provar que eu sabia executar. Contra a opinião da família e sem falar a língua. Até hoje, mais de R$ 300 mil em formações.</p>
+          <p>Voltei vendendo o que poucas clínicas vendiam. Trouxe a técnica russa de lábios para Blumenau e passei a receber paciente de outras clínicas para corrigir o que tinha sido feito antes. O mililitro que eu cobrava a R$ 780 passou a R$ 1.450. Não porque o mercado mudou: porque eu mudei o que eu vendia e como eu vendia.</p>
+          <p>Fui atender nos Estados Unidos. Na primeira viagem, dez pacientes. Na segunda, aquelas dez me indicaram, e foram 26. Na terceira, 67, umas trinta delas americanas. Las Vegas, Miami, Orlando.</p>
+          <p>Hoje a minha clínica tem três salas, projetada do jeito que eu sempre quis, e 90% de quem eu atendo chega por indicação. Fatura acima de R$ 100 mil por mês.</p>
+          <p>O corpo veio pelo mesmo caminho. Em 2019 eu comecei no glúteo, estudando ativos e técnicas de aplicação até chegar a um resultado natural e seguro. Depois veio a íntima, e eu fui aprender onde se aprende de verdade: no Rio de Janeiro, com dissecação em cadáver fresh frozen e prática em paciente modelo. Hoje os três estão na minha agenda, com o mesmo protocolo que eu uso no rosto: medir, marcar, aplicar em etapas, acompanhar. São esses protocolos que, dependendo do que a paciente precisa, chegam a R$ 50 mil.</p>
+        </div>
+        <ul class="numeros faixa-numeros" role="list">
+          <li class="numero"><span class="numero-n">7</span><span class="numero-u">anos</span><span class="numero-a">de estudo e clínica</span></li>
+          <li class="numero"><span class="numero-n">3</span><span class="numero-u">países</span><span class="numero-a">de formação</span></li>
+          <li class="numero"><span class="numero-n">R$ 300 mil</span><span class="numero-a">em formações</span></li>
+          <li class="numero"><span class="numero-n lacuna">N_PACIENTES</span><span class="numero-a">pacientes atendidas</span></li>
+          <li class="numero"><span class="numero-n">67</span><span class="numero-u">pacientes</span><span class="numero-a">em uma viagem aos EUA</span></li>
+          <li class="numero"><span class="numero-n">90%</span><span class="numero-a">por indicação</span></li>
+          <li class="numero"><span class="numero-n lacuna">N_ALUNAS</span><span class="numero-a">alunas formadas</span></li>
+        </ul>
+        <div class="galeria galeria-6 carrossel" tabindex="0" role="region" aria-label="Galeria de formações e viagens">
+          <figure><div class="ph r-3x2" role="img" aria-label="Foto, Belgrado 2019, 3:2"><span>Belgrado 2019, 3:2</span></div><figcaption>Belgrado 2019</figcaption></figure>
+          <figure><div class="ph r-3x2" role="img" aria-label="Foto, Seul 2019, 3:2"><span>Seul 2019, 3:2</span></div><figcaption>Seul 2019</figcaption></figure>
+          <figure><div class="ph r-3x2" role="img" aria-label="Foto, Rússia 2019, 3:2"><span>Rússia 2019, 3:2</span></div><figcaption>Rússia 2019</figcaption></figure>
+          <figure><div class="ph r-3x2" role="img" aria-label="Foto, Rússia 2020, 3:2"><span>Rússia 2020, 3:2</span></div><figcaption>Rússia 2020</figcaption></figure>
+          <figure><div class="ph r-3x2" role="img" aria-label="Foto, Rio de Janeiro, 3:2"><span>Rio de Janeiro, 3:2</span></div><figcaption>Rio de Janeiro</figcaption></figure>
+          <figure><div class="ph r-3x2" role="img" aria-label="Foto, Las Vegas, Miami, Orlando, 3:2"><span>Las Vegas, Miami, Orlando, 3:2</span></div><figcaption>Las Vegas, Miami, Orlando</figcaption></figure>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Bloco 3: voce tambem vende o que toda clinica vende -->
-  <section class="bloco suave" id="bloco-3" aria-labelledby="t-tambem">
+  <!-- Bloco 3: quanto vale o que poucas fazem -->
+  <section class="bloco suave" id="bloco-3" aria-labelledby="t-vale">
     <div class="wrapper">
       <div class="coluna c-leitura">
-        <h2 class="t-h1 titulo-bloco" id="t-tambem">Você também vende o que toda clínica vende.</h2>
+        <h2 class="t-h1 titulo-bloco" id="t-vale">Quanto vale o que poucas fazem</h2>
         <div class="texto">
-          <p>Toxina, lábio, pele: é o que a sua clínica vende, e é o que toda clínica da sua cidade vende também. Aí a paciente que fez o lábio com você pergunta, no fim da consulta: "você faz glúteo?". Ou manda mensagem perguntando de íntima, meio sem jeito, porque não sabe para quem perguntar. Hoje você indica alguém. Ela vai, faz, e o procedimento que poucas fazem fica com outra pessoa.</p>
-          <p>Foi nesse ponto que a minha clínica mudou de tamanho: quando a paciente passou a me procurar pelo que poucas fazem. Glúteo, íntima feminina e íntima masculina são três desses procedimentos. Em três dias, com a sua mão na paciente, você volta para a sua cidade fazendo os três, com o meu protocolo, a conta de quanto cobrar e eu no grupo para os seus primeiros casos.</p>
+          <p>Toxina, lábio, pele. É o que a sua clínica vende, e é o que toda clínica da sua cidade vende também. Eu já vendi só isso.</p>
+          <p>Um protocolo de glúteo ou de íntima, na minha clínica, chega a R$ 50 mil. No mercado, um glúteo vai de R$ 15 mil a R$ 55 mil. <strong>Quantas toxinas você aplica para chegar a R$ 50 mil?</strong></p>
+          <p>Esse procedimento existe na sua cidade também. Ou alguém já faz, e a paciente que poderia ser sua é dela. Ou ninguém faz por perto, e quem quer viaja para fazer. Nos dois casos, o valor está lá, e não está na sua agenda.</p>
+          <h3 class="t-h2 comando">Pare de vender só o que toda clínica vende.</h3>
+          <p>Em três dias, com a sua mão na paciente, você volta para a sua cidade fazendo glúteo, íntima feminina e íntima masculina.</p>
+        </div>
+        <div class="acao">
+          <button class="btn" type="button" data-abre-popup>Quero minha vaga</button>
+          <p class="apoio">Você preenche, eu te chamo no WhatsApp.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Bloco 4: numeros -->
-  <section class="bloco claro" id="bloco-4" aria-label="Números da imersão">
+  <!-- Bloco 4: quanto eu cobro -->
+  <section class="bloco claro" id="bloco-4" aria-labelledby="t-cobro">
+    <div class="wrapper">
+      <div class="coluna">
+        <h2 class="t-h1 titulo-bloco" id="t-cobro">Quanto eu cobro, e o que passa para a sua mão</h2>
+        <div class="carta">
+          <div class="ph r-4x5 carta-foto" role="img" aria-label="Página da apostila com a tabela, valores cobertos, ou a capa da apostila, 4:5"><span>Página da apostila com a tabela, valores cobertos, 4:5</span><span class="ph-sub">Ou a capa da apostila</span></div>
+          <div class="carta-texto">
+            <p>Esse número é meu. A técnica e a conta que chegam nele, eu te passo em três dias.</p>
+            <p>O que eu cobro por protocolo vai na sua apostila: a minha tabela dos três procedimentos, como eu monto o preço (produto, volume, sessões, hora clínica, margem) e o que faz a paciente pagar esse valor e voltar: avaliação com medidas, resultado construído em etapas, retorno em 24 horas, 48 horas e 15 dias.</p>
+            <p>No começo eu cobrava pelo que achava certo, sem saber o custo da minha hora, e trabalhei treze meses sem sobrar nada. Hoje eu sei exatamente onde a conta fecha, e é isso que vai na sua apostila.</p>
+            <p>Quanto você vai cobrar na sua cidade é decisão sua. O que faz uma paciente pagar esse valor, eu te mostro com a sua mão na paciente.</p>
+            <p><strong>A ambição é sua. O caminho eu já andei; a técnica que ele exige, você aprende aqui.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloco 5: numeros da imersao -->
+  <section class="bloco suave" id="bloco-5" aria-label="Números da imersão">
     <div class="wrapper">
       <div class="coluna">
         <ul class="numeros" role="list">
@@ -674,8 +773,8 @@ body.popup-aberto .faixa { display: none; }
     </div>
   </section>
 
-  <!-- Bloco 5: nos tres dias -->
-  <section class="bloco suave" id="bloco-5" aria-labelledby="t-dias">
+  <!-- Bloco 6: nos tres dias -->
+  <section class="bloco claro" id="bloco-6" aria-labelledby="t-dias">
     <div class="wrapper">
       <div class="coluna">
         <h2 class="t-h1 titulo-bloco" id="t-dias">Nos três dias, com a sua mão:</h2>
@@ -685,7 +784,7 @@ body.popup-aberto .faixa { display: none; }
           <li><svg class="ic ic-check" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Conduzir o pós</strong> e orientar a paciente, com a segunda sessão já marcada.</span></li>
           <li><svg class="ic ic-check" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Reconhecer</strong> o que não é caso estético, e saber quando encaminhar.</span></li>
           <li><svg class="ic ic-check" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Montar o seu protocolo</strong> dos três, com a lista do que comprar e de quem.</span></li>
-          <li><svg class="ic ic-check" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Sair com a conta</strong> de quanto cobrar por cada um, do jeito que eu cobro.</span></li>
+          <li><svg class="ic ic-check" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Sair com a minha tabela</strong> e a conta de quanto cobrar por cada um.</span></li>
           <li><svg class="ic ic-check" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Entrar no grupo</strong> em que eu respondo as dúvidas dos seus primeiros casos, por 6 meses.</span></li>
         </ul>
         <div class="acao">
@@ -696,8 +795,8 @@ body.popup-aberto .faixa { display: none; }
     </div>
   </section>
 
-  <!-- Bloco 6: agenda -->
-  <section class="bloco claro" id="bloco-6" aria-labelledby="t-agenda">
+  <!-- Bloco 7: agenda -->
+  <section class="bloco suave" id="bloco-7" aria-labelledby="t-agenda">
     <div class="wrapper">
       <div class="coluna">
         <div class="titulo-bloco">
@@ -751,13 +850,26 @@ body.popup-aberto .faixa { display: none; }
     </div>
   </section>
 
-  <!-- Bloco 7: paciente real e protocolo -->
-  <section class="bloco suave" id="bloco-7" aria-labelledby="t-real">
+  <!-- Bloco 8: por que poucas fazem -->
+  <section class="bloco claro" id="bloco-8" aria-labelledby="t-poucas">
+    <div class="wrapper">
+      <div class="coluna c-leitura">
+        <h2 class="t-h2 titulo-bloco" id="t-poucas">Por que poucas fazem</h2>
+        <div class="texto">
+          <p>Na pós, a prática é pouca. Às vezes é uma paciente dividida entre três ou quatro alunas: você faz um terço do procedimento e sai sem segurança para aplicar. Eu passei por isso: curso de um dia, 25 profissionais, meia hora de demonstração e nenhum procedimento ao vivo. Quem sai sem ter aplicado não aplica.</p>
+          <p>Aqui são <strong>N_APLICACOES aplicações com a sua mão</strong> nos três dias, em paciente real, comigo do lado. Nas vagas VIP, uma paciente só sua por procedimento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloco 9: paciente real, protocolo e uma paciente do inicio ao fim -->
+  <section class="bloco suave" id="bloco-9" aria-labelledby="t-real">
     <div class="wrapper">
       <div class="coluna">
         <h2 class="t-h1 titulo-bloco" id="t-real">Paciente real, eu do lado</h2>
         <div class="real">
-          <p>As pacientes modelo eu trago. Você avalia junto, marca junto e aplica em dupla ou trio, comigo do lado, nas três regiões: são <strong>N_APLICACOES aplicações com a sua mão</strong> nos três dias, e você acompanha todos os atendimentos da turma. Durante toda a prática há kit de intercorrência na sala. Jaleco é com você.</p>
+          <p>As pacientes modelo eu trago. Você avalia junto, marca junto e aplica em dupla ou trio, comigo do lado, nas três regiões, e acompanha todos os atendimentos da turma. Durante toda a prática há kit de intercorrência na sala. Jaleco é com você.</p>
           <p class="vip-caixa"><strong>Nas 2 vagas VIP, a paciente é só sua: um paciente modelo por procedimento, aplicação inteira, em sala própria.</strong></p>
         </div>
         <div class="protocolo">
@@ -772,77 +884,51 @@ body.popup-aberto .faixa { display: none; }
             <li class="etapa"><span class="etapa-n">04</span><h4 class="t-h3">Acompanhar.</h4><p>Pós, retorno e a paciente de volta.</p></li>
           </ol>
         </div>
+        <div class="inicio-fim">
+          <h3 class="t-h2 titulo-bloco">Uma paciente de glúteo, do início ao fim</h3>
+          <ol class="linha-tempo" role="list">
+            <li class="marco"><span class="marco-ponto" aria-hidden="true"></span><h4 class="t-h3">Chega e mede</h4><p>Proporções, um lado contra o outro.</p></li>
+            <li class="marco"><span class="marco-ponto" aria-hidden="true"></span><h4 class="t-h3">Marca</h4><p>Antes de qualquer agulha.</p></li>
+            <li class="marco"><span class="marco-ponto" aria-hidden="true"></span><h4 class="t-h3">Aplica em etapas</h4><p>O resultado se constrói.</p></li>
+            <li class="marco"><span class="marco-ponto" aria-hidden="true"></span><h4 class="t-h3">24 h e 48 h</h4><p>Ela volta e eu vejo a região. Fotos e mensagens.</p></li>
+            <li class="marco"><span class="marco-ponto" aria-hidden="true"></span><h4 class="t-h3">15 dias e segunda sessão</h4><p>Meço de novo, ajusto o que for preciso.</p></li>
+          </ol>
+          <p class="inicio-fim-texto">Ela chega. Eu meço: proporções, um lado contra o outro, o que ela quer e o que a anatomia dela permite. Marco antes de qualquer agulha. Aplico em etapas: o produto acomoda, a densidade muda, o resultado se constrói. Em 24 horas ela volta e eu vejo a região. Em 48, fotos e mensagens. Em 15 dias o produto está estável: meço de novo, ajusto o que for preciso, e a segunda sessão já está marcada. É isso que você faz no sábado, com a sua mão, e repete no domingo nas duas íntimas.</p>
+          <p class="formacao">No corpo, a minha formação é esta: glúteo desde 2019, pesquisando ativos e técnicas para resultados naturais e seguros; íntima no Rio de Janeiro, com dissecação em cadáver fresh frozen e prática em pacientes modelo.</p>
+        </div>
         <div class="ph r-3x2 foto-aplicando" role="img" aria-label="Foto da Manu aplicando com uma aluna ao lado, 3:2"><span>Foto da Manu aplicando com uma aluna ao lado, 3:2</span><span class="ph-sub">Sem paciente identificável</span></div>
       </div>
     </div>
   </section>
 
-  <!-- Bloco 8: o numero e meu, o protocolo e seu -->
-  <section class="bloco claro" id="bloco-8" aria-labelledby="t-carta">
-    <div class="wrapper">
-      <div class="coluna">
-        <h2 class="t-h1 titulo-bloco" id="t-carta">O número é meu. O protocolo é seu.</h2>
-        <div class="carta">
-          <div class="ph r-4x5 carta-foto" role="img" aria-label="Foto da Manu, 4:5"><span>Foto da Manu, 4:5</span></div>
-          <div class="carta-texto">
-            <p>O que eu te prometo cabe em três dias e seis meses: você aplica os três procedimentos em paciente real comigo do lado, sai com o protocolo, a conta de quanto cobrar e os documentos prontos, e tem a quem perguntar nos seus primeiros casos. O que você fatura com isso é construção sua, um degrau de cada vez, como foi a minha. Faturamento não é lucro, agenda cheia não é empresa saudável, e a conta eu te ensino a fazer.</p>
-            <p>Eu ensino porque reconheço nas minhas alunas a profissional que eu fui no início: cheia de vontade, com medo, com dúvidas e sem uma direção clara. Hoje eu posso oferecer o caminho que precisei descobrir praticamente sozinha. O que eu aprendi, eu quero que vire direção, segurança e resultado para você.</p>
-            <p>Eu aprendi fazendo, com alguém do lado. É assim que eu ensino.</p>
-            <p class="assinatura">Dra. Manu Maia · Biomédica esteta · Blumenau (SC)</p>
-          </div>
-        </div>
-        <div class="galeria carrossel" tabindex="0" role="region" aria-label="Galeria de formações">
-          <figure><div class="ph r-3x2" role="img" aria-label="Foto da formação no Rio, 3:2"><span>Formação no Rio, 3:2</span></div><span class="linha-vazia" aria-hidden="true"></span></figure>
-          <figure><div class="ph r-3x2" role="img" aria-label="Foto da formação na Rússia, 3:2"><span>Formação na Rússia, 3:2</span></div><span class="linha-vazia" aria-hidden="true"></span></figure>
-          <figure><div class="ph r-3x2" role="img" aria-label="Foto da formação na Coreia, 3:2"><span>Formação na Coreia, 3:2</span></div><span class="linha-vazia" aria-hidden="true"></span></figure>
-          <figure><div class="ph r-3x2" role="img" aria-label="Foto da formação na Sérvia, 3:2"><span>Formação na Sérvia, 3:2</span></div><span class="linha-vazia" aria-hidden="true"></span></figure>
-          <figure><div class="ph r-3x2" role="img" aria-label="Foto de curso que ela deu, 3:2"><span>Curso que ela deu, 3:2</span></div><span class="linha-vazia" aria-hidden="true"></span></figure>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Bloco 9: o que voce leva para casa -->
-  <section class="bloco suave" id="bloco-9" aria-labelledby="t-leva">
-    <div class="wrapper">
-      <div class="coluna">
-        <h2 class="t-h1 titulo-bloco" id="t-leva">O que você leva para casa</h2>
-        <ol class="itens" role="list">
-          <li class="item"><svg class="ic" aria-hidden="true"><use href="#i-item"/></svg><div><span class="item-n">1</span><h3 class="t-h3">O Protocolo Corpo por Medida dos três procedimentos</h3><p>Na apostila, e as suas fotos e vídeos aplicando, para o seu Instagram.</p></div></li>
-          <li class="item"><svg class="ic" aria-hidden="true"><use href="#i-item-cheio"/></svg><div><span class="item-n">2</span><h3 class="t-h3">Kit de documentos prontos</h3><p>Ficha de avaliação com medidas, termo de consentimento, registro fotográfico e ficha de acompanhamento, dos três.</p></div></li>
-          <li class="item"><svg class="ic" aria-hidden="true"><use href="#i-item-cheio"/></svg><div><span class="item-n">3</span><h3 class="t-h3">O que comprar e quanto cobrar</h3><p>Guia de compra por procedimento (o que, quanto, de quem, preço de referência) e a tabela de precificação dos três, do jeito que eu faço.</p></div></li>
-          <li class="item"><svg class="ic" aria-hidden="true"><use href="#i-item"/></svg><div><span class="item-n">4</span><h3 class="t-h3">Roteiro de paciente modelo na sua cidade</h3><p>O mesmo que eu uso.</p></div></li>
-          <li class="item"><svg class="ic" aria-hidden="true"><use href="#i-item"/></svg><div><span class="item-n">5</span><h3 class="t-h3">Guia de intercorrência de uma página.</h3></div></li>
-          <li class="item"><svg class="ic" aria-hidden="true"><use href="#i-item-cheio"/></svg><div><span class="item-n">6</span><h3 class="t-h3">Grupo de apoio por 6 meses</h3><p>Com resposta em PRAZO_RESPOSTA, e um drive com apostilas, fotos da turma e contatos de representantes e produtos.</p></div></li>
-          <li class="item"><svg class="ic" aria-hidden="true"><use href="#i-item"/></svg><div><span class="item-n">7</span><h3 class="t-h3">Material de preparo assim que a vaga é sua</h3><p>Anatomia resumida, a ficha de avaliação e o que levar.</p></div></li>
-          <li class="item"><svg class="ic" aria-hidden="true"><use href="#i-item"/></svg><div><span class="item-n">8</span><h3 class="t-h3">Modelos de post, legenda e roteiro de conversa</h3><p>Para anunciar que agora você faz os três.</p></div></li>
-          <li class="item"><svg class="ic" aria-hidden="true"><use href="#i-item"/></svg><div><span class="item-n">9</span><h3 class="t-h3">Certificado de 30 horas</h3></div></li>
-        </ol>
-        <p class="experiencia">E o resto que faz um fim de semana valer: kit da imersão (caixa, garrafa, caderno, caneta), crachá, artes #EuVou para o seu Stories, coffee nos três dias e o espumante de sábado.</p>
-        <div class="fotos-kit carrossel" tabindex="0" role="region" aria-label="Fotos do material">
-          <div class="ph r-1x1" role="img" aria-label="Foto da apostila, 1:1"><span>Apostila, 1:1</span></div>
-          <div class="ph r-1x1" role="img" aria-label="Foto do certificado, 1:1"><span>Certificado, 1:1</span></div>
-          <div class="ph r-1x1" role="img" aria-label="Foto da caixa e do kit, 1:1"><span>Caixa e kit, 1:1</span></div>
-          <div class="ph r-1x1" role="img" aria-label="Foto do crachá, 1:1"><span>Crachá, 1:1</span></div>
-          <div class="ph r-1x1" role="img" aria-label="Arte #EuVou, 1:1"><span>Arte #EuVou, 1:1</span></div>
-        </div>
-        <div class="acao">
-          <button class="btn" type="button" data-abre-popup>Quero minha vaga</button>
-          <p class="apoio">Você preenche, eu te chamo no WhatsApp.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Bloco 10: alunas -->
-  <section class="bloco claro" id="bloco-10" aria-labelledby="t-alunas">
+  <!-- Bloco 10: o que eu tenho na mao -->
+  <section class="bloco claro" id="bloco-10" aria-labelledby="t-mao">
     <div class="wrapper">
       <div class="coluna">
         <div class="titulo-bloco">
-          <h2 class="t-h1" id="t-alunas">Alunas que já aprenderam comigo</h2>
-          <p class="honestidade">Depoimentos de formações anteriores. Esta é a primeira turma da Imersão Corpo por Medida.</p>
+          <h2 class="t-h1" id="t-mao">O que eu tenho na mão</h2>
+          <p class="abertura">Primeira edição da Imersão. Não é a minha primeira turma.</p>
         </div>
-        <div class="depos carrossel" tabindex="0" role="region" aria-label="Depoimentos">
+        <div class="provas">
+          <figure class="doc">
+            <button class="doc-botao" type="button" data-abre-doc aria-label="Abrir o contrato de instrutora em tamanho maior">
+              <span class="ph r-a4" role="img" aria-label="Contrato de instrutora e representante legal, A4 em pé"><span>Contrato de instrutora e representante legal, A4 em pé</span><span class="ph-sub">Toque para abrir maior</span></span>
+            </button>
+            <span class="linha-vazia" aria-hidden="true"></span>
+          </figure>
+          <ul class="provas-lista" role="list">
+            <li class="prova"><svg class="ic" aria-hidden="true"><use href="#i-item"/></svg><p><strong>Instrutora e representante legal de uma academia russa no Brasil</strong>, por contrato assinado, com a minha foto no site oficial como treinadora.</p></li>
+            <li class="prova"><svg class="ic" aria-hidden="true"><use href="#i-item"/></svg><p><strong>N_ALUNAS profissionais formadas</strong>, inclusive da área da saúde, em turmas e no formato VIP, desde a época da micropigmentação.</p><div class="ph r-1x1 prova-foto" role="img" aria-label="Foto: dando curso, 1:1"><span>Dando curso, 1:1</span></div></li>
+            <li class="prova"><svg class="ic" aria-hidden="true"><use href="#i-item"/></svg><p><strong>Convidada a palestrar</strong> em eventos de laboratórios do mercado.</p><div class="ph r-1x1 prova-foto" role="img" aria-label="Foto: palestra, 1:1"><span>Palestra, 1:1</span></div></li>
+            <li class="prova"><svg class="ic" aria-hidden="true"><use href="#i-item"/></svg><p><strong>N_PACIENTES pacientes atendidas</strong>, 90% por indicação.</p></li>
+          </ul>
+        </div>
+        <div class="alunas">
+          <div class="titulo-bloco">
+            <h3 class="t-h2">Alunas que já aprenderam comigo</h3>
+            <p class="honestidade">Depoimentos de formações anteriores.</p>
+          </div>
+          <div class="depos carrossel" tabindex="0" role="region" aria-label="Depoimentos">
           <figure class="depo">
             <figcaption class="depo-topo"><div class="ph r-1x1 depo-foto" role="img" aria-label="Foto da aluna, 1:1"><span>Foto 1:1</span></div><span class="depo-nome">Dra. Raiane Rosa</span></figcaption>
             <blockquote>"Eu amei o curso! Teve muita prática, e a Manu estava o tempo todo ao meu lado. O cuidado que ela tem como professora também é algo que impressiona. A Manu realmente ensina tudo aquilo que ela sabe."</blockquote>
@@ -882,12 +968,53 @@ body.popup-aberto .faixa { display: none; }
             <li class="frase">"Preciso de alguém que acompanhe meus primeiros casos e não me deixe sozinha depois do curso."</li>
           </ul>
         </div>
+        <div class="pacientes-dizem">
+          <h3 class="t-h2 titulo-bloco">O que as pacientes me dizem</h3>
+          <p class="pacientes-linha">Recebo todo dia mensagem de paciente dizendo que isso mudou a vida dela, e paciente de anos continua comigo.</p>
+          <div class="prints">
+            <div class="ph r-4x5" role="img" aria-label="Print de mensagem de paciente, nome coberto"><span>Print de mensagem de paciente, nome coberto</span></div>
+            <div class="ph r-4x5" role="img" aria-label="Print de mensagem de paciente, nome coberto"><span>Print de mensagem de paciente, nome coberto</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Bloco 11: crachas -->
-  <section class="bloco escuro" id="bloco-11" aria-labelledby="t-crachas">
+  <!-- Bloco 11: o que voce leva para casa -->
+  <section class="bloco suave" id="bloco-11" aria-labelledby="t-leva">
+    <div class="wrapper">
+      <div class="coluna">
+        <h2 class="t-h1 titulo-bloco" id="t-leva">O que você leva para casa</h2>
+        <ol class="itens" role="list">
+          <li class="item"><svg class="ic" aria-hidden="true"><use href="#i-item"/></svg><div><span class="item-n">1</span><h3 class="t-h3">O Protocolo Corpo por Medida dos três procedimentos</h3><p>Na apostila, e as suas fotos e vídeos aplicando, para o seu Instagram.</p></div></li>
+          <li class="item"><svg class="ic" aria-hidden="true"><use href="#i-item-cheio"/></svg><div><span class="item-n">2</span><h3 class="t-h3">Kit de documentos prontos</h3><p>Ficha de avaliação com medidas, termo de consentimento, registro fotográfico e ficha de acompanhamento, dos três.</p></div></li>
+          <li class="item"><svg class="ic" aria-hidden="true"><use href="#i-item-cheio"/></svg><div><span class="item-n">3</span><h3 class="t-h3">A minha tabela e a conta</h3><p>Guia de compra por procedimento (o que, quanto, de quem, preço de referência) e a precificação dos três, do jeito que eu faço.</p></div></li>
+          <li class="item"><svg class="ic" aria-hidden="true"><use href="#i-item"/></svg><div><span class="item-n">4</span><h3 class="t-h3">Roteiro de paciente modelo na sua cidade</h3><p>O mesmo que eu uso.</p></div></li>
+          <li class="item"><svg class="ic" aria-hidden="true"><use href="#i-item"/></svg><div><span class="item-n">5</span><h3 class="t-h3">Guia de intercorrência de uma página.</h3></div></li>
+          <li class="item"><svg class="ic" aria-hidden="true"><use href="#i-item-cheio"/></svg><div><span class="item-n">6</span><h3 class="t-h3">Grupo de apoio por 6 meses</h3><p>Com resposta em PRAZO_RESPOSTA, e um drive com apostilas, fotos da turma e contatos de representantes e produtos.</p></div></li>
+          <li class="item"><svg class="ic" aria-hidden="true"><use href="#i-item"/></svg><div><span class="item-n">7</span><h3 class="t-h3">Material de preparo assim que a vaga é sua</h3><p>Anatomia resumida, a ficha de avaliação e o que levar.</p></div></li>
+          <li class="item"><svg class="ic" aria-hidden="true"><use href="#i-item"/></svg><div><span class="item-n">8</span><h3 class="t-h3">Modelos de post, legenda e roteiro de conversa</h3><p>Para anunciar que agora você faz os três.</p></div></li>
+          <li class="item"><svg class="ic" aria-hidden="true"><use href="#i-item"/></svg><div><span class="item-n">9</span><h3 class="t-h3">Certificado de 30 horas</h3></div></li>
+        </ol>
+        <p class="experiencia">E o resto que faz um fim de semana valer: kit da imersão (caixa, garrafa, caderno, caneta), crachá, artes #EuVou para o seu Stories, coffee nos três dias e o espumante de sábado.</p>
+        <div class="fotos-kit carrossel" tabindex="0" role="region" aria-label="Fotos do material">
+          <div class="ph r-1x1" role="img" aria-label="Foto da apostila, 1:1"><span>Apostila, 1:1</span></div>
+          <div class="ph r-1x1" role="img" aria-label="Foto dos documentos impressos, 1:1"><span>Documentos impressos, 1:1</span></div>
+          <div class="ph r-1x1" role="img" aria-label="Foto do certificado, 1:1"><span>Certificado, 1:1</span></div>
+          <div class="ph r-1x1" role="img" aria-label="Foto da caixa e do kit, 1:1"><span>Caixa e kit, 1:1</span></div>
+          <div class="ph r-1x1" role="img" aria-label="Foto do crachá, 1:1"><span>Crachá, 1:1</span></div>
+          <div class="ph r-1x1" role="img" aria-label="Arte #EuVou, 1:1"><span>Arte #EuVou, 1:1</span></div>
+        </div>
+        <div class="acao">
+          <button class="btn" type="button" data-abre-popup>Quero minha vaga</button>
+          <p class="apoio">Você preenche, eu te chamo no WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloco 12: crachas -->
+  <section class="bloco escuro" id="bloco-12" aria-labelledby="t-crachas">
     <div class="wrapper">
       <div class="coluna c-crachas">
         <h2 class="t-h1" id="t-crachas">Escolha o seu crachá</h2>
@@ -899,7 +1026,7 @@ body.popup-aberto .faixa { display: none; }
             <p class="preco">10x de R$ 990</p>
             <ul class="lista-check" role="list">
               <li><svg class="ic ic-check" aria-hidden="true"><use href="#i-check"/></svg><span>Os 3 dias presenciais, com a sexta inteira de anatomia e manejo.</span></li>
-              <li><svg class="ic ic-check" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Você aplica em dupla ou trio, com a minha supervisão direta</strong>, nos três procedimentos.</span></li>
+              <li><svg class="ic ic-check" aria-hidden="true"><use href="#i-check"/></svg><span>Você aplica em dupla ou trio, <strong>com a minha supervisão direta</strong>, nos três procedimentos.</span></li>
               <li><svg class="ic ic-check" aria-hidden="true"><use href="#i-check"/></svg><span>Tudo de "O que você leva para casa".</span></li>
             </ul>
             <div class="acao">
@@ -931,8 +1058,8 @@ body.popup-aberto .faixa { display: none; }
     </div>
   </section>
 
-  <!-- Bloco 12: garantia -->
-  <section class="bloco claro" id="bloco-12" aria-labelledby="t-garantia">
+  <!-- Bloco 13: garantia -->
+  <section class="bloco claro" id="bloco-13" aria-labelledby="t-garantia">
     <div class="wrapper">
       <div class="coluna">
         <div class="garantia">
@@ -951,8 +1078,8 @@ body.popup-aberto .faixa { display: none; }
     </div>
   </section>
 
-  <!-- Bloco 13: quem pode -->
-  <section class="bloco suave quem" id="bloco-13" aria-labelledby="t-quem">
+  <!-- Bloco 14: quem pode -->
+  <section class="bloco suave quem" id="bloco-14" aria-labelledby="t-quem">
     <div class="wrapper">
       <div class="coluna c-leitura">
         <h2 class="t-h2 titulo-bloco" id="t-quem">Quem pode se inscrever</h2>
@@ -969,8 +1096,8 @@ body.popup-aberto .faixa { display: none; }
     </div>
   </section>
 
-  <!-- Bloco 14: Blumenau e perguntas -->
-  <section class="bloco claro" id="bloco-14" aria-labelledby="t-blumenau">
+  <!-- Bloco 15: Blumenau e perguntas -->
+  <section class="bloco claro" id="bloco-15" aria-labelledby="t-blumenau">
     <div class="wrapper">
       <div class="coluna">
         <h2 class="t-h2" id="t-blumenau">Blumenau (SC)</h2>
@@ -997,57 +1124,61 @@ body.popup-aberto .faixa { display: none; }
             <div class="faq-resp" id="faq-1"><p>O número é da minha clínica, depois de sete anos de estudo e de clínica. O que você fatura depende da sua agenda, da sua cidade e de quanto você aplica. O que eu garanto está escrito na Garantia do Primeiro Caso.</p></div>
           </div>
           <div class="faq-item">
-            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-2"><span>Preciso já aplicar em corpo?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
-            <div class="faq-resp" id="faq-2" hidden><p>Não é exigido. A sexta inteira é anatomia, indicação, manejo e demonstração. Se você já aplica no rosto, ou está terminando a pós, você acompanha.</p></div>
+            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-2"><span>Quanto eu vou cobrar?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
+            <div class="faq-resp" id="faq-2" hidden><p>A minha tabela dos três procedimentos e a conta de como eu monto o preço vão na sua apostila. O valor na sua cidade é decisão sua.</p></div>
           </div>
           <div class="faq-item">
-            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-3"><span>Quem traz as pacientes modelo?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
-            <div class="faq-resp" id="faq-3" hidden><p>Eu. Você chega e aplica.</p></div>
+            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-3"><span>Preciso já aplicar em corpo?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
+            <div class="faq-resp" id="faq-3" hidden><p>Não é exigido. A sexta inteira é anatomia, indicação, manejo e demonstração. Se você já aplica no rosto, ou está terminando a pós, você acompanha.</p></div>
           </div>
           <div class="faq-item">
-            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-4"><span>O produto da prática é custo meu?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
-            <div class="faq-resp" id="faq-4" hidden><p>Não. O produto da prática não entra na sua conta.</p></div>
+            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-4"><span>Quem traz as pacientes modelo?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
+            <div class="faq-resp" id="faq-4" hidden><p>Eu. Você chega e aplica.</p></div>
           </div>
           <div class="faq-item">
-            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-5"><span>Quantas vezes eu aplico?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
-            <div class="faq-resp" id="faq-5" hidden><p>N_APLICACOES aplicações com a sua mão nos três dias, em dupla ou trio, e você acompanha todos os atendimentos da turma. Na VIP, um paciente só seu por procedimento.</p></div>
+            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-5"><span>O produto da prática é custo meu?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
+            <div class="faq-resp" id="faq-5" hidden><p>Não. O produto da prática não entra na sua conta.</p></div>
           </div>
           <div class="faq-item">
-            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-6"><span>Qual a carga horária do certificado?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
-            <div class="faq-resp" id="faq-6" hidden><p>30 horas, entregue no sábado à noite. Na VIP, o certificado registra a prática individual.</p></div>
+            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-6"><span>Quantas vezes eu aplico?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
+            <div class="faq-resp" id="faq-6" hidden><p>N_APLICACOES aplicações com a sua mão nos três dias, em dupla ou trio, e você acompanha todos os atendimentos da turma. Na VIP, um paciente só seu por procedimento.</p></div>
           </div>
           <div class="faq-item">
-            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-7"><span>Como pago?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
-            <div class="faq-resp" id="faq-7" hidden><p>Pix, cartão em até 10x ou boleto. A reserva da vaga e as condições à vista eu explico na conversa.</p></div>
+            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-7"><span>Qual a carga horária do certificado?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
+            <div class="faq-resp" id="faq-7" hidden><p>30 horas, entregue no sábado à noite. Na VIP, o certificado registra a prática individual.</p></div>
           </div>
           <div class="faq-item">
-            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-8"><span>E se eu desistir?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
-            <div class="faq-resp" id="faq-8" hidden><p>Até 7 dias depois da inscrição, devolução integral. Até 48 horas antes da turma, devolução do que foi pago menos a reserva da vaga. Falta por motivo justo comprovado, avisada até 7 dias antes, vira crédito para uma próxima turma, válido por 6 meses.</p></div>
+            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-8"><span>Como pago?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
+            <div class="faq-resp" id="faq-8" hidden><p>Pix, cartão em até 10x ou boleto. A reserva da vaga e as condições à vista eu explico na conversa.</p></div>
           </div>
           <div class="faq-item">
-            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-9"><span>E se a turma não fechar?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
-            <div class="faq-resp" id="faq-9" hidden><p>A turma acontece com o mínimo de alunas confirmadas. Se não fechar, marcamos nova data; quem não puder esperar recebe tudo de volta.</p></div>
+            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-9"><span>E se eu desistir?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
+            <div class="faq-resp" id="faq-9" hidden><p>Até 7 dias depois da inscrição, devolução integral. Até 48 horas antes da turma, devolução do que foi pago menos a reserva da vaga. Falta por motivo justo comprovado, avisada até 7 dias antes, vira crédito para uma próxima turma, válido por 6 meses.</p></div>
           </div>
           <div class="faq-item">
-            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-10"><span>Dentista pode?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
-            <div class="faq-resp" id="faq-10" hidden><p>Não. A pós em harmonização orofacial é de dentistas, e esta imersão é para as cinco profissões listadas.</p></div>
+            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-10"><span>E se a turma não fechar?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
+            <div class="faq-resp" id="faq-10" hidden><p>A turma acontece com o mínimo de alunas confirmadas. Se não fechar, marcamos nova data; quem não puder esperar recebe tudo de volta.</p></div>
           </div>
           <div class="faq-item">
-            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-11"><span>Quantas vagas VIP?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
-            <div class="faq-resp" id="faq-11" hidden><p>Duas.</p></div>
+            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-11"><span>Dentista pode?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
+            <div class="faq-resp" id="faq-11" hidden><p>Não. A pós em harmonização orofacial é de dentistas, e esta imersão é para as cinco profissões listadas.</p></div>
+          </div>
+          <div class="faq-item">
+            <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-12"><span>Quantas vagas VIP?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
+            <div class="faq-resp" id="faq-12" hidden><p>Duas.</p></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Bloco 15: chamada final -->
-  <section class="bloco escuro" id="bloco-15" aria-labelledby="t-final">
+  <!-- Bloco 16: chamada final -->
+  <section class="bloco escuro" id="bloco-16" aria-labelledby="t-final">
     <div class="wrapper">
       <div class="coluna c-leitura">
         <div class="final">
           <h2 class="t-h1" id="t-final">Pare de vender só o que toda clínica vende.</h2>
-          <p class="promessa">Em três dias, com a sua mão na paciente, você volta para a sua cidade fazendo glúteo, íntima feminina e íntima masculina. O protocolo é meu. A clínica que você constrói com ele é sua.</p>
+          <p class="promessa">Em 2017 eu vendia o que todo estúdio vendia e faturava dez mil. Hoje um protocolo meu chega a R$ 50 mil. O que mudou foi o que eu decidi vender, e onde eu fui aprender. Em três dias, com a sua mão na paciente, você volta para a sua cidade fazendo glúteo, íntima feminina e íntima masculina.</p>
           <div class="acao">
             <button class="btn" type="button" data-abre-popup>Quero minha vaga</button>
             <p class="apoio">10 vagas · 2 VIP · Blumenau (SC) · DIA/MÊS/ANO</p>
@@ -1079,6 +1210,14 @@ body.popup-aberto .faixa { display: none; }
 <div class="cta-fixo" id="cta-fixo" aria-hidden="true" inert>
   <button class="btn" type="button" data-abre-popup>Quero minha vaga</button>
 </div>
+
+<!-- Documento do bloco 10 em tamanho maior -->
+<dialog class="doc-grande" id="doc-grande" aria-label="Contrato de instrutora em tamanho maior">
+  <button class="popup-x" type="button" aria-label="Fechar" data-fecha-doc>
+    <svg viewBox="0 0 22 22" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <div class="ph r-a4" role="img" aria-label="Contrato de instrutora e representante legal, A4 em pé, em tamanho maior"><span>Contrato de instrutora e representante legal, A4 em pé</span><span class="ph-sub">Aqui o documento aparece legível</span></div>
+</dialog>
 
 <!-- Pop-up do formulario -->
 <dialog class="popup" id="popup" aria-labelledby="popup-titulo">
@@ -1125,6 +1264,7 @@ body.popup-aberto .faixa { display: none; }
       </div>
       <label class="campo-check"><input type="checkbox" name="aceite" required><span>Aceito receber contato da Manu pelo WhatsApp.</span></label>
       <input type="hidden" name="cracha" id="f-cracha" value="">
+      <input type="hidden" name="pagina" id="f-pagina" value="C">
     </div>
     <div class="popup-pe">
       <button class="btn" type="submit">Enviar e falar com a Manu</button>
@@ -1242,6 +1382,16 @@ body.popup-aberto .faixa { display: none; }
     document.getElementById('popup-ok-titulo').focus();
   });
 
+  /* Bloco 10: documento abre em tamanho maior */
+  var doc = document.getElementById('doc-grande');
+  Array.prototype.forEach.call(document.querySelectorAll('[data-abre-doc]'), function (b) {
+    b.addEventListener('click', function () { doc.showModal(); });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-fecha-doc]'), function (b) {
+    b.addEventListener('click', function () { doc.close(); });
+  });
+  doc.addEventListener('click', function (e) { if (e.target === doc) { doc.close(); } });
+
   /* Rodape: links ainda sem destino */
   Array.prototype.forEach.call(document.querySelectorAll('[data-sem-destino]'), function (a) {
     a.addEventListener('click', function (e) { e.preventDefault(); });
@@ -1250,7 +1400,7 @@ body.popup-aberto .faixa { display: none; }
   /* Botao fixo do celular: aparece depois do hero, some nos crachas e com o pop-up aberto */
   var cta = document.getElementById('cta-fixo');
   var hero = document.getElementById('bloco-1');
-  var crachas = document.getElementById('bloco-11');
+  var crachas = document.getElementById('bloco-12');
   function atualizaCta() {
     var altura = window.innerHeight;
     var heroFora = hero.getBoundingClientRect().bottom <= 0;
