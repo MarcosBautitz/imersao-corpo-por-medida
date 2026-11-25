@@ -8,7 +8,10 @@
 <style>
 /* Prototipo em wireframe da pagina A, VERSAO 2 da copy (2026-11-24). SOMENTE DESKTOP.
    Mesmo molde da versao 1: escala de cinza, uma fonte do sistema, caixa cinza no lugar de foto e video.
-   Caixa com borda tracejada = ideia nova de imagem, para aprovar. */
+   Caixa com borda tracejada = ideia nova de imagem, para aprovar.
+   Revisao de 2026-11-24, depois da leitura do prototipo: secoes novas 8A (Voce instagramavel) e 8B (acompanhamento),
+   cada uma com fundo proprio; bloco 8 com os tres dias; bloco 13 sem a frase dos dentistas; CRBM no rodape.
+   Revisao aprovada e publicada em 2026-11-24. */
 
 /* Contrato de responsividade da agencia, 9 bandas, sem mudar valor */
 :root {
@@ -34,6 +37,7 @@
 
   --escuro: #2b2b2b;
   --escuro-faixa: #1e1e1e;
+  --medio: #6b6b6b;
   --sobre-escuro: #f4f4f4;
   --sobre-escuro-2: #cfcfcf;
   --borda-no-escuro: #8a8a8a;
@@ -98,6 +102,7 @@ body.popup-aberto { overflow: hidden; }
 .escuro { background: var(--escuro); color: var(--sobre-escuro); }
 .claro { background: var(--claro); }
 .suave { background: var(--suave); }
+.medio { background: var(--medio); color: var(--sobre-escuro); }
 
 /* Tipografia do handoff */
 .display { font-size: var(--fs-display); font-weight: 800; line-height: 1.15; letter-spacing: -0.015em; }
@@ -287,6 +292,7 @@ body.popup-aberto .faixa { display: none; }
 .entrega { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 16px; align-items: start; padding: var(--pad); border: 1px solid var(--borda); border-radius: 12px; }
 .entrega .ph { padding: 6px; border-radius: 8px; font-size: 10px; }
 .entrega p { font-size: 14px; line-height: 1.6; }
+.entrega.contexto { grid-template-columns: minmax(0, 1fr); border-color: transparent; background: var(--suave); }
 
 /* Bloco 9: bonus, bloco de destaque */
 .bonus { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 40px; align-items: start; }
@@ -299,6 +305,34 @@ body.popup-aberto .faixa { display: none; }
 .feito p { padding: var(--pad); font-size: 14px; line-height: 1.6; }
 .valor { margin-top: 24px; padding: 18px 22px; border: 2px solid currentColor; border-radius: 12px; font-size: 19px; font-weight: 800; line-height: 1.4; text-align: center; }
 .bonus-fecho { margin-top: 24px; text-align: center; }
+
+/* Bloco 8A: voce instagramavel, secao propria no tom escuro */
+.insta { display: grid; grid-template-columns: 252px minmax(0, 1fr); gap: 56px; align-items: center; }
+.insta .rotulo { color: var(--sobre-escuro-2); }
+.insta .titulo-bloco { margin-top: 8px; margin-bottom: 8px; }
+.insta-sub { margin-bottom: 20px; font-size: 17px; font-weight: 700; line-height: 1.45; }
+.insta-frase { margin-top: 24px; padding: 4px 0 4px 18px; border-left: 5px solid currentColor; font-size: 22px; font-weight: 800; line-height: 1.3; }
+.insta-cartoes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); margin-top: 40px; }
+.insta-cartao { padding: var(--pad); border: 1px solid var(--borda-no-escuro); border-radius: 12px; font-size: 14px; line-height: 1.6; }
+.insta-cartao strong { display: block; margin-bottom: 4px; font-size: var(--fs-h3); line-height: 1.35; }
+
+/* Bloco 8B: acompanhamento, secao propria no tom medio, com dois cartoes grandes */
+.acomp-topo .rotulo { color: var(--sobre-escuro); }
+.acomp-topo .titulo-bloco { margin-top: 8px; margin-bottom: 16px; }
+.acomp-intro { max-width: 680px; font-size: 17px; line-height: 1.6; }
+.acomp-cartoes { display: grid; gap: 20px; margin-top: 32px; }
+.acomp { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 32px; align-items: start; padding: 28px; border-radius: 20px; background: var(--claro); color: var(--texto); }
+.acomp-quando { display: inline-block; padding: 3px 10px; border: 1px solid currentColor; border-radius: 999px; }
+.acomp h3 { margin-top: 10px; margin-bottom: 14px; }
+.acomp .texto p + p { margin-top: 12px; }
+.acomp-manda { margin-top: 16px; margin-bottom: 12px; font-weight: 700; }
+.acomp .lista-check { gap: 10px; }
+.acomp .lista-check li { font-size: 14px; line-height: 1.55; }
+.acomp .depo { margin-top: 20px; background: var(--suave); }
+.acomp-forte { font-weight: 700; }
+
+/* Bloco 9: o valor pago, em destaque dentro da historia */
+.texto .pago { margin-top: 22px; margin-bottom: 22px; padding: 6px 0 6px 18px; border-left: 5px solid currentColor; font-size: 32px; font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; }
 
 /* Bloco 10: alunas */
 .honestidade { margin-top: 8px; font-size: 13px; line-height: 1.5; color: var(--texto-2); }
@@ -505,14 +539,14 @@ body.popup-aberto .faixa { display: none; }
         <div class="duas invertida">
           <div class="ph ideia r-4x5" role="img" aria-label="Ideia de foto: a mão da aluna com a seringa">
             <span class="ph-tag">ideia nova</span>
-            <span>Foto: a mão é a da aluna, 4:5</span>
+            <span>Foto: quem aplica é a aluna, 4:5</span>
             <span class="ph-sub">Close de mãos enluvadas: a aluna segura a seringa e a mão da Manu, ao lado, aponta o ponto sobre o campo. Só mãos e instrumento.</span>
           </div>
           <div>
             <div class="texto">
               <p>Diploma e curso você já tem. A frase que eu mais ouço das profissionais é esta: "Tenho vários cursos, mas ainda não tenho segurança para atender."</p>
-              <p>Eu também passei por isso. Fiz curso de um dia, com 25 profissionais na sala e meia hora de demonstração. Saí com o certificado e com a mão do mesmo jeito que entrou.</p>
-              <p>É por isso que a paciente sai com um nome: a sua mão ainda não aplicou em corpo. Segurança em corpo vem de aplicar em paciente real, com alguém do lado conferindo cada medida e cada marcação. Foi assim que eu aprendi. É assim que eu ensino.</p>
+              <p>Eu também passei por isso. Fiz um curso de um dia, com 25 profissionais na sala e meia hora de demonstração. Eu assisti, recebi o certificado e fui embora sem ter aplicado em ninguém.</p>
+              <p>É por isso que você encaminha a paciente que pede glúteo ou íntima: você já viu como se faz, mas ainda não fez com a sua mão. Segurança vem de aplicar em paciente real, com alguém do lado conferindo cada medida e cada marcação. Foi assim que eu aprendi. É assim que eu ensino.</p>
             </div>
             <figure class="depo colado">
               <span class="depo-rotulo">Depoimento de formação anterior</span>
@@ -521,7 +555,7 @@ body.popup-aberto .faixa { display: none; }
             </figure>
           </div>
         </div>
-        <p class="ponte">Por isso eu montei três dias em que a mão é a sua:</p>
+        <p class="ponte">Por isso eu montei três dias em que quem aplica é você:</p>
       </div>
     </div>
   </section>
@@ -534,7 +568,7 @@ body.popup-aberto .faixa { display: none; }
         <p class="chamada">Três dias em Blumenau, três procedimentos, a sua mão na paciente.</p>
         <ul class="resumo" role="list">
           <li><strong>O que você ganha:</strong> volta aplicando glúteo, íntima feminina e íntima masculina, com o protocolo que eu uso na minha clínica. Quando a paciente pedir, você faz.</li>
-          <li><strong>Como você sabe que acontece:</strong> a prática é em paciente real, eu fico do lado em toda aplicação, e a sua vaga tem garantia: se depois do seu primeiro caso você quiser praticar de novo, você pede e refaz.</li>
+          <li><strong>Como você sabe que acontece:</strong> a prática é em paciente real, eu fico do lado em toda aplicação, e a sua vaga tem garantia: se depois do seu primeiro caso você ainda se sentir insegura, você pede e refaz a prática.</li>
           <li><strong>Quanto tempo leva:</strong> de sexta a domingo.</li>
           <li><strong>O que eu espero de você:</strong> que chegue com o jaleco e os seus documentos. Os pacientes modelo eu trago, você não paga o produto da prática, e as fichas estão prontas na sua apostila.</li>
         </ul>
@@ -542,7 +576,7 @@ body.popup-aberto .faixa { display: none; }
           <li class="numero"><span class="numero-n">3</span><span class="numero-u">dias</span><span class="numero-a">sexta a domingo</span></li>
           <li class="numero"><span class="numero-n">3</span><span class="numero-u">procedimentos</span><span class="numero-a">glúteo, íntima feminina, íntima masculina</span></li>
           <li class="numero"><span class="numero-n">10</span><span class="numero-u">vagas</span><span class="numero-a">8 regulares e 2 VIP</span></li>
-          <li class="numero"><span class="numero-n">30</span><span class="numero-u">horas</span><span class="numero-a">de certificado</span></li>
+          <li class="numero"><span class="numero-n">30</span><span class="numero-u">horas</span><span class="numero-a">com certificado</span></li>
           <li class="numero"><span class="numero-n">6</span><span class="numero-u">meses</span><span class="numero-a">de grupo comigo</span></li>
         </ul>
         <div class="acao">
@@ -569,8 +603,8 @@ body.popup-aberto .faixa { display: none; }
             <div class="passo-corpo"><h3 class="t-h3">2. Sábado: glúteo, com a sua mão.</h3><p>Você avalia, marca e aplica em paciente real.</p></div>
           </li>
           <li class="passo">
-            <div class="ph ideia r-3x2" role="img" aria-label="Ideia de foto: a gravação de domingo"><span class="ph-tag">ideia nova</span><span>Foto: a gravação</span><span class="ph-sub">A aluna de jaleco diante da câmera, filmmaker em primeiro plano.</span></div>
-            <div class="passo-corpo"><h3 class="t-h3">3. Domingo: as duas íntimas.</h3><p>Feminina de manhã, masculina à tarde. E você grava os anúncios para divulgar os três procedimentos na sua região.</p></div>
+            <div class="ph ideia r-3x2" role="img" aria-label="Ideia de foto: a prática de domingo"><span class="ph-tag">ideia nova</span><span>Foto: a prática de domingo</span><span class="ph-sub">A Manu e duas alunas de jaleco e luva, junto à bancada de materiais. Sem paciente à vista.</span></div>
+            <div class="passo-corpo"><h3 class="t-h3">3. Domingo: as duas íntimas.</h3><p>Feminina de manhã, masculina à tarde. Você aplica nas duas.</p></div>
           </li>
         </ol>
         <p class="organizado">A agenda e os pacientes modelo já estão organizados. Você só precisa chegar.</p>
@@ -601,7 +635,6 @@ body.popup-aberto .faixa { display: none; }
             <ul class="dia-lista" role="list">
               <li>Manhã, íntima feminina: avaliação, bioestimuladores, fios, preenchedores, massagem e pós.</li>
               <li>Tarde, íntima masculina: avaliação, toxina, fios, preenchedores, massagem e pós.</li>
-              <li>Ao longo do dia: gravação dos seus anúncios, com filmmaker.</li>
               <li>Encerramento: tira-dúvidas, entrega do certificado, espumante e foto da turma.</li>
             </ul>
             <p class="dia-pe">Coffee às 10h30 e às 16h30 · almoço às 13h30.</p>
@@ -624,7 +657,6 @@ body.popup-aberto .faixa { display: none; }
         <div class="real">
           <div class="texto">
             <p>Você pratica em grupo de duas ou três alunas, no mesmo paciente modelo, junto comigo: cada uma avalia, marca e aplica, e eu confiro uma por uma. São <strong>N_APLICACOES aplicações com a sua mão</strong> nos três dias, nas três regiões. E enquanto a colega aplica, você vê o mesmo procedimento mais uma vez, de perto.</p>
-            <p>Durante toda a prática há kit de intercorrência na sala.</p>
           </div>
           <p class="vip-caixa"><strong>Nas 2 vagas VIP, o paciente modelo é só seu: nos três procedimentos, são só você, o paciente e eu, em sala própria.</strong></p>
         </div>
@@ -634,7 +666,7 @@ body.popup-aberto .faixa { display: none; }
           <ol class="etapas" role="list">
             <li class="etapa">
               <div class="ph ideia r-3x2" role="img" aria-label="Ideia de foto: fita métrica e ficha"><span class="ph-tag">ideia nova</span><span>Fita métrica sobre a ficha de avaliação com medidas</span></div>
-              <div class="etapa-corpo"><span class="etapa-n">01</span><h4 class="t-h3">Medir.</h4><p>Com medidas, não no olho. Um lado nunca é igual ao outro, e é a medida que mostra. A ficha de avaliação com medidas vai na sua apostila.</p></div>
+              <div class="etapa-corpo"><span class="etapa-n">01</span><h4 class="t-h3">Medir.</h4><p>Com medidas, não no olho. Um lado nunca é igual ao outro, e é a medida que mostra.</p></div>
             </li>
             <li class="seta-etapa" aria-hidden="true"><svg class="ic" width="20" height="20"><use href="#i-proxima"/></svg></li>
             <li class="etapa">
@@ -644,7 +676,7 @@ body.popup-aberto .faixa { display: none; }
             <li class="seta-etapa" aria-hidden="true"><svg class="ic" width="20" height="20"><use href="#i-proxima"/></svg></li>
             <li class="etapa">
               <div class="ph ideia r-3x2" role="img" aria-label="Ideia de foto: bandeja pronta"><span class="ph-tag">ideia nova</span><span>Bandeja pronta: seringa e cânula, sem marca à vista</span></div>
-              <div class="etapa-corpo"><span class="etapa-n">03</span><h4 class="t-h3">Aplicar.</h4><p>Em etapas. O resultado se constrói, com a segunda sessão já marcada.</p></div>
+              <div class="etapa-corpo"><span class="etapa-n">03</span><h4 class="t-h3">Aplicar.</h4><p>Em etapas. O resultado se constrói.</p></div>
             </li>
             <li class="seta-etapa" aria-hidden="true"><svg class="ic" width="20" height="20"><use href="#i-proxima"/></svg></li>
             <li class="etapa">
@@ -676,7 +708,7 @@ body.popup-aberto .faixa { display: none; }
             <p>Nem sempre foi assim. Eu comecei num estúdio de duas salas, comprando produto no almoço para vender no jantar. Faturava dez, doze mil por mês e, nos primeiros treze meses, não sobrou nada. E eu me perguntava: por que alguém me escolheria?</p>
             <p>A resposta veio quando eu entendi uma coisa simples: se eu fizesse o mesmo que todo mundo fazia, eu teria o mesmo resultado que todo mundo tinha. Fui buscar técnica na fonte, fora do país, contra a opinião da família e sem falar a língua. Voltei, e o mililitro que eu cobrava a R$ 780 passou a R$ 1.450.</p>
             <p>Hoje a minha clínica fatura acima de R$ 100 mil por mês. Esses números são meus, depois de sete anos e de mais de R$ 300 mil em formações. O que eu entrego a você é o protocolo dos três procedimentos; o que você constrói com ele é seu.</p>
-            <p>Eu aprendi fazendo, com alguém do lado. Agora o lado é o meu, e a mão é a sua.</p>
+            <p>Eu aprendi fazendo, com alguém do lado. Agora quem fica do lado sou eu, e quem aplica é você.</p>
             <p class="assinatura">Dra. Manu Maia · Biomédica esteta · Blumenau (SC)</p>
             <figure class="depo colado">
               <span class="depo-rotulo">Depoimento de formação anterior</span>
@@ -698,11 +730,11 @@ body.popup-aberto .faixa { display: none; }
     </div>
   </section>
 
-  <!-- Bloco 8: o que voce recebe, e em que dia chega -->
+  <!-- Bloco 8: o que voce recebe em maos (linha do tempo com os tres dias) -->
   <section class="bloco claro" id="bloco-8" aria-labelledby="t-recebe">
     <div class="wrapper">
       <div class="coluna c-larga">
-        <h2 class="t-h1 titulo-bloco" id="t-recebe">O que você recebe, e em que dia chega</h2>
+        <h2 class="t-h1 titulo-bloco" id="t-recebe">O que você recebe em mãos</h2>
         <div class="ph r-3x1 foto-chegada" role="img" aria-label="Foto da chegada, com o crachá e a caixa da imersão"><span>Foto da chegada, panorâmica</span><span class="ph-sub">A mesa de boas-vindas: a caixa da imersão aberta, o crachá com o nome e a apostila com a capa à mostra.</span></div>
         <div class="linha-tempo">
           <div class="momento">
@@ -715,9 +747,9 @@ body.popup-aberto .faixa { display: none; }
             </ul>
           </div>
           <div class="momento">
-            <h3 class="momento-quando">Nos três dias</h3>
+            <h3 class="momento-quando">Sábado, na prática de glúteo</h3>
             <ul class="entregas" role="list">
-              <li class="entrega"><div class="ph r-1x1" role="img" aria-label="Foto das fotos chegando no celular"><span>Celular com as suas fotos chegando no WhatsApp</span></div><p><strong>As suas fotos e vídeos aplicando</strong>, já editados. Uma parte chega no seu WhatsApp ainda durante a imersão, para o seu Instagram mostrar onde você está. O restante chega na semana seguinte, no seu Drive.</p></li>
+              <li class="entrega contexto"><p><strong>É dia de procedimento.</strong> Você avalia, marca e aplica em paciente real, comigo do lado.</p></li>
             </ul>
           </div>
           <div class="momento">
@@ -726,24 +758,86 @@ body.popup-aberto .faixa { display: none; }
               <li class="entrega"><div class="ph r-1x1" role="img" aria-label="Foto do certificado"><span>Certificado impresso e as taças de espumante</span></div><p><strong>O certificado de 30 horas</strong>, impresso, com os três procedimentos e a minha assinatura. E um espumante com a turma.</p></li>
             </ul>
           </div>
-          <div class="momento">
-            <h3 class="momento-quando">30 dias depois</h3>
-            <ul class="entregas" role="list">
-              <li class="entrega"><div class="ph r-1x1" role="img" aria-label="Foto do encontro online"><span>Notebook com a turma na chamada</span></div><p><strong>O encontro online da turma comigo.</strong> Estudamos os casos atendidos na imersão que voltaram para o retorno: você vê como ficou, um mês depois, o que a turma aplicou. Fica gravado.</p></li>
-            </ul>
-          </div>
-          <div class="momento">
-            <h3 class="momento-quando">Por 6 meses</h3>
-            <ul class="entregas" role="list">
-              <li class="entrega"><div class="ph r-1x1" role="img" aria-label="Foto do grupo no WhatsApp"><span>Tela do grupo, com os nomes cobertos</span></div><p><strong>O grupo da imersão no WhatsApp.</strong> Quem responde sou eu, pessoalmente. Você manda o caso, a foto, a dúvida e a conversa em que você fecha o procedimento com a paciente. Intercorrência você manda na hora em que acontecer.</p></li>
-            </ul>
+        </div>
+        <p class="ponte">E os três dias ficam registrados:</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloco 8A: voce instagramavel (fotos e videos), secao propria em cor de destaque -->
+  <section class="bloco escuro" id="bloco-8a" aria-labelledby="t-insta">
+    <div class="wrapper">
+      <div class="coluna c-larga">
+        <div class="insta">
+          <div class="celular"><div class="ph r-9x16" role="img" aria-label="Celular com as suas fotos chegando no WhatsApp"><span>Celular com as suas fotos chegando no WhatsApp, 9:16</span><span class="ph-sub">Sem paciente identificável.</span></div></div>
+          <div>
+            <p class="rotulo">Nos três dias</p>
+            <h2 class="t-h1 titulo-bloco" id="t-insta">Você instagramável</h2>
+            <p class="insta-sub">As suas fotos e vídeos aplicando, já editados, para o seu Instagram.</p>
+            <div class="texto">
+              <p>Enquanto você avalia, marca e aplica, tem uma câmera registrando: a seringa na sua mão, eu do seu lado, a turma em volta da maca.</p>
+              <p>Uma parte das fotos e dos vídeos chega no seu WhatsApp ainda durante a imersão. Você posta de Blumenau mesmo, e quem segue você já fica sabendo que glúteo e íntima estão chegando na sua clínica.</p>
+            </div>
+            <p class="insta-frase">A paciente que hoje pergunta "você faz glúteo?" vai ver a resposta no seu Instagram.</p>
           </div>
         </div>
-        <figure class="depo colado">
-          <span class="depo-rotulo">Depoimento de formação anterior</span>
-          <figcaption class="depo-topo"><div class="ph r-1x1 depo-foto" role="img" aria-label="Foto da aluna, 1:1"><span>Foto 1:1</span></div><span class="depo-nome">Juliana Machado, enfermeira esteta</span></figcaption>
-          <blockquote>"O diferencial é o suporte pós-curso. A Manu continua acompanhando nosso desenvolvimento, tirando dúvidas no grupo. É como ter uma mentora para sempre. Técnica impecável!"</blockquote>
-        </figure>
+        <ul class="insta-cartoes" role="list">
+          <li class="insta-cartao"><strong>Já editados.</strong> As fotos e os vídeos chegam selecionados e prontos. É abrir e postar.</li>
+          <li class="insta-cartao"><strong>Você e a turma.</strong> O seu material, com você aplicando, e o material da turma inteira.</li>
+          <li class="insta-cartao"><strong>O restante, na semana seguinte.</strong> No seu Drive, para você postar quando quiser.</li>
+        </ul>
+        <p class="ponte">Depois do domingo, eu continuo com você:</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloco 8B: acompanhamento (grupo de 6 meses e encontro de 30 dias), secao propria em outro tom -->
+  <section class="bloco medio" id="bloco-8b" aria-labelledby="t-acomp">
+    <div class="wrapper">
+      <div class="coluna c-larga">
+        <div class="acomp-topo">
+          <p class="rotulo">Depois do domingo</p>
+          <h2 class="t-h1 titulo-bloco" id="t-acomp">Por 6 meses, eu acompanho os seus primeiros casos.</h2>
+          <p class="acomp-intro">Nos três dias, você aplica comigo do lado. A sua primeira paciente de glúteo você vai atender depois, na sua clínica. É nessa hora que a dúvida aparece. E é nessa hora que você me chama.</p>
+        </div>
+        <div class="acomp-cartoes">
+          <article class="acomp" aria-labelledby="t-grupo">
+            <div class="ph r-4x5" role="img" aria-label="Foto do grupo no WhatsApp"><span>Tela do grupo, com os nomes cobertos, 4:5</span></div>
+            <div>
+              <p class="rotulo"><span class="acomp-quando">Por 6 meses</span></p>
+              <h3 class="t-h2" id="t-grupo">O grupo da imersão no WhatsApp</h3>
+              <div class="texto">
+                <p>O grupo abre na sexta de manhã, quando a imersão começa, e segue aberto por 6 meses. <strong>Quem responde sou eu, pessoalmente.</strong></p>
+              </div>
+              <p class="acomp-manda">Você manda ali:</p>
+              <ul class="lista-check" role="list">
+                <li><svg class="ic ic-check" aria-hidden="true"><use href="#i-check"/></svg><span><strong>O caso que você vai atender.</strong> A avaliação, as medidas e o que você pensa em aplicar.</span></li>
+                <li><svg class="ic ic-check" aria-hidden="true"><use href="#i-check"/></svg><span><strong>A foto e o vídeo do que você aplicou</strong>, para eu ver como ficou.</span></li>
+                <li><svg class="ic ic-check" aria-hidden="true"><use href="#i-check"/></svg><span><strong>A dúvida</strong> de glúteo, de íntima feminina ou de íntima masculina.</span></li>
+                <li><svg class="ic ic-check" aria-hidden="true"><use href="#i-check"/></svg><span><strong>A conversa com a paciente.</strong> Como você apresentou o procedimento e o valor, para eu ajudar você a fechar.</span></li>
+                <li><svg class="ic ic-check" aria-hidden="true"><use href="#i-check"/></svg><span><strong>A intercorrência</strong>, na hora em que acontecer.</span></li>
+              </ul>
+              <figure class="depo">
+                <span class="depo-rotulo">Depoimento de formação anterior</span>
+                <figcaption class="depo-topo"><div class="ph r-1x1 depo-foto" role="img" aria-label="Foto da aluna, 1:1"><span>Foto 1:1</span></div><span class="depo-nome">Juliana Machado, enfermeira esteta</span></figcaption>
+                <blockquote>"O diferencial é o suporte pós-curso. A Manu continua acompanhando nosso desenvolvimento, tirando dúvidas no grupo. É como ter uma mentora para sempre. Técnica impecável!"</blockquote>
+              </figure>
+            </div>
+          </article>
+          <article class="acomp" aria-labelledby="t-encontro">
+            <div class="ph r-3x2" role="img" aria-label="Foto do encontro online"><span>Notebook com a turma na chamada, 3:2</span></div>
+            <div>
+              <p class="rotulo"><span class="acomp-quando">30 dias depois</span></p>
+              <h3 class="t-h2" id="t-encontro">O encontro online da turma comigo</h3>
+              <div class="texto">
+                <p>Um mês depois da imersão, a turma se reúne de novo comigo, online.</p>
+                <p>Eu levo para a tela os casos da imersão que voltaram para o retorno, e a turma estuda esses casos comigo. Você vê como ficou, um mês depois, o que a turma aplicou.</p>
+                <p class="acomp-forte">É vendo o resultado um mês depois que você aprende a planejar a próxima paciente.</p>
+                <p>O encontro fica gravado, e a gravação vai para você.</p>
+              </div>
+            </div>
+          </article>
+        </div>
         <p class="ponte">E tem uma parte que eu faço questão de entregar, porque já fiquei sem ela:</p>
       </div>
     </div>
@@ -758,7 +852,8 @@ body.popup-aberto .faixa { display: none; }
           <div class="texto">
             <p>Eu já voltei de imersão com a mala cheia de apostila e a cabeça cheia de técnica. Paguei caro, aprendi, cheguei em casa, sentei com o celular na mão e me perguntei: tá, e como eu começo agora?</p>
             <p>A técnica estava na minha mão. A minha cidade não sabia.</p>
-            <p>Fui resolver por fora. Uma pessoa para escrever os anúncios. Um filmmaker para me gravar. Depois, a edição. Paguei mais de R$ 5 mil por isso.</p>
+            <p>Fui resolver por fora. Uma pessoa para escrever os anúncios. Um filmmaker para me gravar. Depois, a edição.</p>
+            <p class="pago">Paguei mais de R$ 5 mil por isso.</p>
             <p>Na minha imersão, essa parte acontece aqui dentro.</p>
             <p>No domingo, ao longo do dia, você grava os anúncios de glúteo, de íntima feminina e de íntima masculina, para divulgar na sua região que agora você faz os três.</p>
           </div>
@@ -767,9 +862,9 @@ body.popup-aberto .faixa { display: none; }
           </div>
         </div>
         <ul class="feitos" role="list">
-          <li class="feito"><div class="ph ideia r-3x2" role="img" aria-label="Ideia de foto: o roteiro impresso"><span class="ph-tag">ideia nova</span><span>Roteiro impresso, com o nome da clínica e a cidade à mostra</span></div><p><strong>Escritos para você.</strong> O roteiro já está pronto quando você chega para gravar, com o seu nome, o nome da sua clínica e a sua cidade.</p></li>
+          <li class="feito"><div class="ph ideia r-3x2" role="img" aria-label="Ideia de foto: o roteiro impresso"><span class="ph-tag">ideia nova</span><span>Roteiro impresso sobre a bancada, pronto para a gravação</span></div><p><strong>Escritos para você.</strong> O roteiro já está pronto quando você chega para gravar.</p></li>
           <li class="feito"><div class="ph r-3x2" role="img" aria-label="Foto do filmmaker gravando uma aluna"><span>Foto: o filmmaker gravando uma aluna</span><span class="ph-sub">Quando existir.</span></div><p><strong>Gravados com filmmaker</strong>, ali mesmo, entre uma prática e outra.</p></li>
-          <li class="feito"><div class="ph ideia r-3x2" role="img" aria-label="Ideia de foto: a pasta do Drive no celular"><span class="ph-tag">ideia nova</span><span>Celular com a pasta do Drive aberta e os vídeos prontos</span></div><p><strong>Editados e entregues</strong> na semana seguinte, no seu Drive, prontos para você colocar no ar.</p></li>
+          <li class="feito"><div class="ph ideia r-3x2" role="img" aria-label="Ideia de foto: a pasta do Drive no celular"><span class="ph-tag">ideia nova</span><span>Celular com a pasta do Drive aberta e os vídeos prontos</span></div><p><strong>Editados e entregues por uma equipe profissional.</strong> Você chega em casa e, naquela mesma semana, já tem o material para trabalhar e vender os seus novos procedimentos.</p></li>
         </ul>
         <p class="valor">Contratar isso por fora me custou mais de R$ 5 mil. Na imersão, vem com a sua vaga.</p>
         <p class="bonus-fecho">A minha preocupação é uma só: que na semana seguinte você já esteja divulgando os três, e não em casa pensando em como começar. É o maior presente que eu posso dar a você.</p>
@@ -890,7 +985,7 @@ body.popup-aberto .faixa { display: none; }
             <ol class="garantia-passos" role="list">
               <li><span class="garantia-n" aria-hidden="true">1</span><span><strong>Faça os três dias.</strong></span></li>
               <li><span class="garantia-n" aria-hidden="true">2</span><span><strong>Mande no grupo o caso da primeira paciente que você atender depois da imersão</strong>, dentro dos 6 meses. Eu ajudo você ali.</span></li>
-              <li><span class="garantia-n" aria-hidden="true">3</span><span><strong>Quer praticar de novo? É só pedir no grupo.</strong> Você refaz a prática desse procedimento na próxima turma, sem pagar a vaga. Quem decide é você.</span></li>
+              <li><span class="garantia-n" aria-hidden="true">3</span><span><strong>Se você ainda se sentir insegura depois de todo esse acompanhamento, peça no grupo.</strong> Você refaz a prática desse procedimento na próxima turma, sem pagar a vaga. Quem decide é você.</span></li>
             </ol>
             <p class="porque">Eu dou essa garantia porque a imersão existe para você sair aplicando.</p>
           </div>
@@ -916,7 +1011,6 @@ body.popup-aberto .faixa { display: none; }
         </ul>
         <div class="depois">
           <p>Com a pós concluída ou em andamento, você entra, mesmo sem nunca ter aplicado em corpo: a sexta inteira existe para colocar todo mundo no mesmo ponto antes da primeira agulha.</p>
-          <p>Dentistas não participam desta imersão.</p>
         </div>
       </div>
     </div>
@@ -969,7 +1063,7 @@ body.popup-aberto .faixa { display: none; }
           </div>
           <div class="faq-item">
             <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-7"><span>Como eu uso a garantia?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
-            <div class="faq-resp" id="faq-7" hidden><p>Você faz os três dias e manda no grupo, dentro dos 6 meses, o caso da primeira paciente que atender. Se quiser praticar de novo, você pede ali e refaz a prática desse procedimento na próxima turma, sem pagar a vaga.</p></div>
+            <div class="faq-resp" id="faq-7" hidden><p>Você faz os três dias e manda no grupo, dentro dos 6 meses, o caso da primeira paciente que atender. Se você ainda se sentir insegura depois de todo o acompanhamento, pede ali e refaz a prática desse procedimento na próxima turma, sem pagar a vaga.</p></div>
           </div>
           <div class="faq-item">
             <h3><button class="faq-barra" type="button" aria-expanded="false" aria-controls="faq-8"><span>E se eu desistir?</span><svg class="ic ic-seta" aria-hidden="true"><use href="#i-seta"/></svg></button></h3>
@@ -990,7 +1084,7 @@ body.popup-aberto .faixa { display: none; }
       <div class="coluna c-leitura">
         <div class="final">
           <h2 class="t-h1" id="t-final">Pare de encaminhar. Venha aplicar.</h2>
-          <p class="promessa">A próxima paciente que perguntar "você faz glúteo?" vai ouvir sim ou vai sair com um nome.</p>
+          <p class="promessa">A próxima paciente que perguntar "você faz glúteo?" vai ouvir sim ou vai ser encaminhada mais uma vez.</p>
           <p class="traz">A sua vaga traz os três dias de prática, a apostila, o grupo de 6 meses comigo, o encontro dos 30 dias, as suas fotos e vídeos, o certificado, a Garantia do Primeiro Caso e o bônus dos seus anúncios.</p>
           <div class="acao">
             <button class="btn" type="button" data-abre-popup>Quero minha vaga</button>
@@ -1009,10 +1103,10 @@ body.popup-aberto .faixa { display: none; }
 </main>
 
 <!-- Bloco 16: rodape -->
-<footer class="rodape">
+<footer class="rodape" id="rodape">
   <div class="wrapper">
     <div class="coluna">
-      <p>Dra. Manu Maia · Imersão Corpo por Medida: glúteo, íntima feminina e masculina · 1ª Edição · Diamond</p>
+      <p>Dra. Manu Maia · CRBM-5 015437 · Imersão Corpo por Medida: glúteo, íntima feminina e masculina · 1ª Edição · Diamond</p>
       <p>EMED Clínica Avançada e Instituto LTDA · CNPJ 61.548.761/0001-77</p>
       <p>WhatsApp (47) 99754-6362 · manumaiaacademy@gmail.com · @dramanumaia</p>
       <p><a href="#" data-sem-destino>Política de privacidade</a> · <a href="#" data-sem-destino>Termos</a></p>
@@ -1022,7 +1116,7 @@ body.popup-aberto .faixa { display: none; }
 
 <!-- Legenda do prototipo: nao faz parte da pagina -->
 <aside class="legenda-proto" aria-label="Legenda do protótipo">
-  <p><strong>Legenda do protótipo (não faz parte da página).</strong> Caixa cinza: foto ou vídeo real, a produzir. Borda tracejada com "ideia nova": imagem proposta neste protótipo, para aprovar. Pílula tracejada: nota de design. DIA/MÊS/ANO e N_APLICACOES: lacunas da copy. Todo botão abre o pop-up do formulário.</p>
+  <p><strong>Legenda do protótipo (não faz parte da página).</strong> Caixa cinza: foto ou vídeo real, a produzir. Borda tracejada com "ideia nova": imagem proposta neste protótipo, para aprovar. Pílula tracejada: nota de design. Faixa em cinza escuro ou cinza médio fora da alternância branco e cinza claro: seção com cor própria no design. DIA/MÊS/ANO e N_APLICACOES: lacunas da copy. Todo botão abre o pop-up do formulário.</p>
 </aside>
 
 <!-- Bloco 16: pop-up do formulario (abre em todo botao) -->
